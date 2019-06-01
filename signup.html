@@ -1,0 +1,131 @@
+<?php
+
+require_once "regconfig.php";
+
+
+$username=$password=$confirmpassword="";
+$username_err=$password_err=$confirmpassword_err="";
+
+if($_SERVER["REQUEST_METHOD"]=='POST')
+{
+    if(empty(trim($POST["username"])))
+    {
+        $username_err="Please enter the username";
+    }
+    else
+    {
+        $sql="SELECT id FROM users WHERE username=?";
+
+        if($stmt=mysqli_prepare($link, $sql))
+        {
+            mysqli_stmt_bind_param($stmt, "s", $paramusername);
+            $paramusername=trim($_POST["username"]);
+
+            if(mysqli_stmt_execute($stmt))
+            {
+                mysqli_stmt_store_result($stmt);
+
+                if(mysqli_stmt_num_rows($stmt)==1)
+                {
+                    $username_err="This username is already taken";
+                }
+                else{
+                    $username=trim($_POST["username"]);
+                }
+
+            }
+            else
+            {
+            echo "opps, something went wrong";
+            }
+    }
+
+    mysqli_stmt_close();
+}
+
+
+
+    //pass valid
+    if(empty(trim($_POST["password"])))
+    {
+        $password_err="Please enter a password";
+    }
+    elseif(strlen(trim(($_POST<8))))
+    {
+        $password_err="password must be greater than 8 characters";
+    }
+    else
+    {
+        $password=trim($_POST["password"]);
+    }
+
+    //valid confirm pass
+    if(empty(trim($_POST["confirm_password"])))
+    {
+        $confirmpassword_err="please confirm passsword";
+    }
+    else
+    {
+        $confirmpassword=trim($_POST["confirm_password"]);
+        if(empty($password_err) && ($password!=$confirmpassword))
+        {
+            $confirmpassword_err="Password did not match";
+        }
+
+    }
+
+    //i/p errors
+    if(empty($username_err)&& empty($password_err) && empty($confirmpassword_err))
+    {
+        $sql="INSERT INTO users (username, password) VALUES (?, ?)";
+
+        if($stmt =mysqli_prepare($link, $sql))
+        {
+            mysqli_stmt_bind_param($stmt, "ss", $paramusername, $parampassword);
+
+            $paramusername=$username;
+            $parampassword=password_hash($password, PASSWORD_DEFAULT);
+
+            if(mysqli_stmt_execute($stmt))
+            {
+                header("location:login.php");
+            }
+            else
+            {
+                echo "Somthting went wrong";
+            }
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+        mysqli_close($link);
+
+}
+?>
+
+
+
+
+
+<html>
+    <head>
+        <title>Signup</title>
+        <link rel="stylesheet" href="todolist.css">
+    </head>
+    <body>
+
+        <h1 id="signup1">Sign up!</h1>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
+        ?>" method="POST">
+        <p id="name"> Userame:</p>
+        <input type="text" placeholder="Enter your name" id="eyn">
+        <p id="pass">Password:</p>
+        <input type="password" placeholder="Enter your password" id="eyp">
+        <p id="confirm">Confirm your password:</p>
+        <input type="password" placeholder="Re-enter your password" id="cyp">
+        <button type="submit" id="sbutton">Sign up</button>
+        <p id="already">Already signed-up?</p>
+        <a href="login.html" id="login">Login here.</a>
+    </form>
+    </body>
+</html>

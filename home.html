@@ -1,0 +1,38 @@
+<html>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <head>
+        <link rel="stylesheet" href="todolist.css">
+        
+    </head>
+
+    <body>
+            
+               <ul id="nav">
+                    <li id="navli">      
+                        <a id="tdl" href="home.html">To-do list</a>
+                        <a id="signup" href="signup.html">Signup</a>
+                        <a id="loggin" href="login.html">Log in</a>
+                    </li>
+                </ul>
+            
+        <div id="taskadd1">
+            <input type="text" placeholder="Write a task..." id="taskadd2" class="inputelement">
+            <input type="button" id="b3" value="Add a task" onclick="addTask()">
+        </div>
+        
+    
+        <div id="taskplace">
+            <p id="todolist"><strong>To do list:</strong></p>
+            <ul id="task" class="todo1"> </ul>
+        </div>
+        <div id="completed">
+            <p id="ct"><strong>Completed Tasks:</strong></p>
+            <ul id="completed-tasks" class="ct">
+
+            </ul>
+        </div>    
+
+        <script src="todo.js"></script>
+    </body>
+</html>

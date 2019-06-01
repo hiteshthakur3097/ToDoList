@@ -1,0 +1,398 @@
+
+body
+{
+    background-color: white;
+}
+#nav
+{
+    list-style-type: none;
+    background-color:#e65100;
+    margin: 0px;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    color: #2C3E50;
+}
+#navli
+{
+    font-size: 28px;
+}
+#navli a
+{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    color: #2C3E50;
+}
+#navli a:hover
+{
+    color: white;
+    background: #2C3E50
+}
+#signup
+{
+    font-size: 28px;
+    position: absolute;
+    left: 1352px;
+    text-decoration: none;
+    color: #2C3E50;
+    border: 0.05px solid black;
+    background-color: white;
+}
+#loggin
+{
+    font-size: 28px;
+    position: absolute;
+    left: 1230px;
+    text-decoration: none;
+    border: 0.05px solid black;
+    background-color: white;
+}
+#b1
+{
+    font-size: 30px;
+    width: 50px;
+    border: none;
+    display: block;
+    background: #f9ca24;
+    padding: 10px;
+}
+
+.search1
+{
+    
+    position: absolute;
+    top: 10%;
+    left: 29%;
+    background:#ecf0f1;
+    height: 25px;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0px 1px 5px grey;
+
+}
+.box
+{
+
+}
+#b2
+{
+    height: 20px;
+    width: 40px;
+    display: flex;
+    justify-content: content;
+    align-items: center;
+    background:#ecf0f1;
+    border-radius: 50%;
+    float: right;
+}
+
+#search2
+{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: black;
+    font-size: 16px;
+    line-height: 40px;
+    width: 550px;
+    align-items: center;
+    height: 25px;
+}
+
+
+#taskadd1
+{
+    position: absolute;
+    top: 22%;
+    left: 25%;
+    background:#ecf0f1;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 1px 5px grey;
+
+}
+
+#taskadd2
+{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 10px;
+    color: black;
+    font-size: 16px;
+    line-height: 40px;
+    width: 650px;
+    height: 40px;
+    color: #2C3E50;
+    
+}
+
+#b3
+{
+    font-size: 15px;
+    background: #ecf0f1;
+    align-items: center;
+    height: 40px;
+    border-radius: 50px;
+    color: #2C3E50;
+}
+
+#task
+{
+    position: absolute;
+    top: 35%;
+    left: 26%;
+    width: 700px;
+    list-style-type: none;
+    background-color: #ecf0f1;
+    font-size: 25px;
+    border-radius: 15px;
+    color: #2C3E50;
+}
+#todolist
+{
+    position: absolute;
+    top: 30%;
+    left: 27%;
+    font-size: 25px;
+    color: #2C3E50;
+}
+
+#ct
+{
+    position: absolute;
+    top: 55%;
+    left: 27%;
+    font-size: 25px;
+    color: #2C3E50;
+}
+#completed-tasks
+{
+    position: absolute;
+    top: 60%;
+    left: 27%;
+    width: 700px;
+    list-style-type: none;
+    background-color: #ecf0f1;
+    font-size: 25px;
+    border-radius: 15px;
+    color: #2C3E50;
+}
+
+
+.edit
+{
+    float: left;
+}
+
+input[type="text"] 
+{
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
+    height: 18px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 6px;
+    font-family: Lato, sans-serif;
+    color: #888;
+}
+.compb
+{
+    font-size: 15px;
+    position: relative;
+    left: 10%;
+    align-items: center;
+    background: #f9ca24;
+    font-size: 21px;
+    border-radius: 3px;
+}
+
+.cb
+{
+   position: relative;
+   left: -2%;
+   font-size: 20px;
+}
+.eb
+{
+    font-size: 15px;
+    position: absolute;
+    left: 80%;
+    align-items: center;
+    background: #e65100;
+    font-size: 20px;
+    border-radius: 30px;
+    color: white;
+    
+}
+.db
+{
+    font-size: 15px;
+    position: absolute;
+    left: 90%;
+    align-items: center;
+    background: #e65100;
+    font-size: 20px;
+    border-radius: 30px;
+    color: white;
+}
+.hide
+{
+    display: none;
+}
+ul li input[type=text] {
+    display:none;
+  }
+  
+  ul li.editMode input[type=text] {
+    display:inline;
+  }
+  
+  ul li.editMode label {
+    display:none;
+  }
+
+
+#signup1
+{
+    font-size: 40px;
+    position: absolute;
+    top: 150px;
+    left: 620px;
+    color: #2C3E50;
+}
+
+#name
+{
+    font-size: 25px;
+    position: absolute;
+    top: 230px;
+    left: 550px;
+    color: #2C3E50;
+}
+#eyn
+{
+    font-size: 20px;
+    position: absolute;
+    top: 290px;
+    left: 550px;
+    width: 300px;
+    height: 35px;
+    border-radius: 0;
+    color: #2C3E50;
+}
+#pass
+{
+    font-size: 25px;
+    position: absolute;
+    top: 310px;
+    left: 550px;
+    color: #2C3E50;
+}
+#eyp
+{
+    font-size: 20px;
+    position: absolute;
+    top: 370px;
+    left: 550px;
+    width: 300px;
+    height: 35px;
+    border-radius: 0;
+    color: #2C3E50;
+}
+
+#confirm
+{
+    font-size: 25px;
+    position: absolute;
+    top: 390px;
+    left: 550px;
+    color: #2C3E50;
+}
+#cyp
+{
+    font-size: 20px;
+    position: absolute;
+    top: 450px;
+    left: 550px;
+    width: 300px;
+    height: 35px;
+    border-radius: 0;
+    color: #2C3E50;
+}
+#sbutton
+{
+    font-size: 15px;
+    position: absolute;
+    top: 500px;
+    left: 550px;
+    width: 300px;
+    height: 45px;
+    color: #2C3E50;
+}
+#already
+{
+    font-size: 15px;
+    position: absolute;
+    top: 540px;
+    left: 590px;
+    color: #2C3E50;
+}
+
+
+#login
+{
+    font-size: 15px;
+    position: absolute;
+    top: 555px;
+    left: 715px;
+    color: #2C3E50;
+    text-decoration: none;
+}
+
+#login1
+{
+    font-size: 40px;
+    position: absolute;
+    top: 150px;
+    left: 650px;
+    color: #2C3E50;
+}
+#lbutton
+{
+    font-size: 15px;
+    position: absolute;
+    top: 430px;
+    left: 550px;
+    width: 300px;
+    height: 45px;
+    color: #2C3E50;
+}
+#not1
+{
+    font-size: 15px;
+    position: absolute;
+    top: 470px;
+    left: 630px;
+    color: #2C3E50;
+}
+#suh
+{
+    font-size: 15px;
+    position: absolute;
+    top: 485px;
+    left: 705px;
+    color: #2C3E50;
+    text-decoration: none;
+}

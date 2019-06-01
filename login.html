@@ -1,0 +1,109 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]==true)
+{
+    header("location:welcome.php");
+    exit;
+}
+
+require_once "config.php";
+
+$username=$password="";
+$username_err=$password_err="";
+
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    if(empty(trim($_POST["username"])))
+    {
+        $username_err="please enter username";
+    }
+    else
+    {
+        $username=trim($_POST["username"]);
+    }
+}
+
+if(empty(trim($_POST["password"])))
+{
+    $password_err="please enter a password";
+}
+else
+{
+    $password=trim($_POST["password"]);
+}
+
+if(empty($username_err) && empty($password_err))
+{
+    $sql="SELECT id, username, password FROM users WHERE username=?";
+
+    if($stmt=mysqli_prepare($link, $sql))
+    {
+        mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+        $param_username=$username;
+    
+        if(mysqli_stmt_execute($stmt))
+        {
+            mysqli_stmt_store_result($stmt);
+
+            if(mysqli_stmt_num_rows($stmt)==1)
+            {
+                mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                
+                if(mysqli_stmt_fetch($stmt))
+                {
+                    if(password_verify($password, $hashed_password))
+                    {
+                        session_start();
+                        $_SESSION["loggedin"]=true;
+                        $_SESSION["id"]=$id;
+                        $_SESSION["username"]=$username;
+                    }
+                    else
+                    {
+                        
+                        $password_err="Invalid password";
+                    }
+                }
+                else
+                {
+                    $username_err="username doesn't exists";
+                }
+            }
+            else
+            {
+                echo "opps, something went wrong";
+            }
+        }
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_close($link);
+}
+?>
+
+
+
+
+<html>
+    <head>
+        <title>
+            Login
+        </title>
+        <link rel="stylesheet" href="todolist.css">
+    </head>
+    <body>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
+        ?>" method="POST">
+        <h1 id="login1">Login</h1>
+        <p id="name">Username</p>
+        <input type="text" placeholder="Enter your username" id="eyn">
+        <p id="pass">Password</p>
+        <input type="password" placeholder="Enter your password" id="eyp">
+        <button type="submit" id="lbutton">Login</button>
+        <p id="not1">Not a user?</p>
+        <a id="suh" href="signup.html">Sign up here.</a>
+        </form>
+    </body>
+</html>
